@@ -25,6 +25,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 .content h2 {
     margin: 10px 0px;
@@ -33,8 +34,17 @@
  }
 
  .content h3 {
-    text-align: center;
+    /* text-align: center; */
     font-size: 15px;
     font-weight: 300;
     width: 350px;
  }
+
+button {
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: purple;
+    color: white;
+  }
