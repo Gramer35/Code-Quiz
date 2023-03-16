@@ -1,7 +1,9 @@
 // create variables to target id's
-const something = document.getElementById("#quiz");
+const something = document.getElementById("#time");
+const startButton = document.getElementById('#startBtn');
+const quizOptions = document.getElementById('#quiz');
 
-const time = 60;
+let timer = ""
 
 // Questions need to be in an array of objects or in HTML? - [0, 1, 2, 3, 4]
 const quizQ = [
@@ -47,27 +49,49 @@ const quizQ = [
     },
 ];
 
-
-// Create function when submit is selected - needs to start the timer along with push the first question out
-function timer(event) {
-    if (condition) {
-        
-    }
+// Create function to handle highscores/local storage
+function gameOver() {
     
 }
 
+
+// Create function when submit is selected - needs to start the timer along with push the first question out
+function startGame(){
+    timer = 60;
+    countdown();
+    beginQuestions();
+
+}
+
 // Create function that will push the first question out and continue to move through questions when selection is made
+function beginQuestions() {
+    
+}
 
 
 // Create function that will handle the countdown - remove 10 second when answer is wrong - once count down hits 0, needs to determine what to do. Also handle what happens when answers are answered before countdown hits 0
+function countdown() {
+
+    const timeInt = setInterval(function () {
+        if (timer > 0) {
+            something.textContent = 'Time: ' + timer;
+            timer--;
+        } else if (timer === 0) {
+            gameOver();
+        }
+
+    })
+
+}
 
 
 // Create a function that will keep track of score/right/wrong answers
 
-// Create function to handle highscores/local storage
+
 
 
 // Create function to clear after quiz completed and highscore entered. Be able to reset back to the submit section. 
 
 
-// Create function to store and show wins and losses
+// Creating an event listener to start the game
+startButton.addEventListener('click', startGame)
