@@ -8,45 +8,36 @@ let timer = ""
 // Questions need to be in an array of objects or in HTML? - [0, 1, 2, 3, 4]
 const quizQ = [
     {
-        "Question": "????",
-        "Answer 1": "Option",
-        "Answer 2": "Option",
-        "Answer 3": "Option",
-        "Answer 4": "Option",
+        Question: "????",
+        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
+        Answer: "A. Answer",
 
     },
     {
-        "Question": "????",
-        "Answer 1": "Option",
-        "Answer 2": "Option",
-        "Answer 3": "Option",
-        "Answer 4": "Option",
+        Question: "????",
+        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
+        Answer: "B. Answer",
 
     },
     {
-        "Question": "????",
-        "Answer 1": "Option",
-        "Answer 2": "Option",
-        "Answer 3": "Option",
-        "Answer 4": "Option",
+        Question: "????",
+        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
+        Answer: "C. Answer",
 
     },
     {
-        "Question": "????",
-        "Answer 1": "Option",
-        "Answer 2": "Option",
-        "Answer 3": "Option",
-        "Answer 4": "Option",
+        Question: "????",
+        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
+        Answer: "D. Answer",
 
     },
     {
-        "Question": "????",
-        "Answer 1": "Option",
-        "Answer 2": "Option",
-        "Answer 3": "Option",
-        "Answer 4": "Option",
+        Question: "????",
+        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
+        Answer: "C. Answer",
 
     },
+
 ];
 
 // Create function to handle highscores/local storage
