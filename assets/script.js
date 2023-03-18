@@ -50,12 +50,12 @@ const quizQ = [
 
 // Create function to handle highscores/local storage
 function gameOver() {
-    
+
 };
 
 
 // Create function when submit is selected - needs to start the timer along with push the first question out
-function startGame(){
+function startGame() {
     console.log('woweee');
     timer = 60;
     opening.style.display = 'none';
@@ -79,10 +79,14 @@ function beginQuestions() {
 
 function checkAns(answer) {
     if (quizQ[index].Answer === quizQ[index].Options[answer]) {
+        answerCheck.style.display = 'block';
         answerCheck.textContent = 'Correct!!'
     } else {
         timer -= 10;
         something.textContent = timer;
+        answerCheck.style.display = 'block';
+        answerCheck.textContent = 'Wrong! The correct answer was ' + quizQ[index].Answer;
+
     }
 
     index++;
@@ -92,8 +96,13 @@ function checkAns(answer) {
     } else {
         gameOver();
     }
-    
+
 };
+
+function pick1() { checkAns(0) };
+function pick2() { checkAns(1) };
+function pick3() { checkAns(2) };
+function pick4() { checkAns(3) };
 
 
 // Create function that will handle the countdown - remove 10 second when answer is wrong - once count down hits 0, needs to determine what to do. Also handle what happens when answers are answered before countdown hits 0
@@ -107,7 +116,7 @@ function countdown() {
             gameOver();
         }
 
-    },1000)
+    }, 1000)
 
 };
 
@@ -122,7 +131,7 @@ function countdown() {
 
 // Creating event listeners for things clicked
 startButton.addEventListener("click", startGame);
-ans1.addEventListener("click", checkAns(0));
-ans2.addEventListener("click", checkAns(1));
-ans3.addEventListener("click", checkAns(2));
-ans4.addEventListener("click", checkAns(3));
+ans1.addEventListener("click", pick1);
+ans2.addEventListener("click", pick2);
+ans3.addEventListener("click", pick3);
+ans4.addEventListener("click", pick4);
