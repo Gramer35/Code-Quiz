@@ -35,6 +35,10 @@
     width: 350px;
  }
 
+ .center {
+    text-align: center;
+ }
+
 button {
     border-radius: 4px;
     text-align: center;

@@ -1,40 +1,48 @@
 // create variables to target id's
-const something = document.getElementById("#time");
-const startButton = document.getElementById("#startBtn");
-const quizOptions = document.getElementById("#quiz");
+const something = document.getElementById("time");
+const startButton = document.getElementById("startBtn");
+const opening = document.getElementById("opening");
+const quizOpts = document.getElementById('questions');
+const question = document.getElementById('question');
+const ans1 = document.getElementById('ans1');
+const ans2 = document.getElementById('ans2');
+const ans3 = document.getElementById('ans3');
+const ans4 = document.getElementById('ans4');
+let index = 0;
+const answerCheck = document.getElementById('checkAns');
 
 let timer = ""
 
 // Questions need to be in an array of objects or in HTML? - [0, 1, 2, 3, 4]
 const quizQ = [
     {
-        Question: "????",
-        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
-        Answer: "A. Answer",
+        Question: "What is A",
+        Options: ["A. A", "B. B", "C. C", "D. D"],
+        Answer: "A. A",
 
     },
     {
-        Question: "????",
-        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
-        Answer: "B. Answer",
+        Question: "What is B",
+        Options: ["A. A", "B. B", "C. C", "D. D"],
+        Answer: "B. B",
 
     },
     {
-        Question: "????",
-        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
-        Answer: "C. Answer",
+        Question: "What is C??",
+        Options: ["A. A", "B. B", "C. C", "D. D"],
+        Answer: "C. C",
 
     },
     {
-        Question: "????",
-        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
-        Answer: "D. Answer",
+        Question: "What is D",
+        Options: ["A. A", "B. B", "C. C", "D. D"],
+        Answer: "D. D",
 
     },
     {
-        Question: "????",
-        Options: ["A. Answer", "B. Answer", "C. Answer", "D. Answer"],
-        Answer: "C. Answer",
+        Question: "What is C again",
+        Options: ["A. A", "B. B", "C. C", "D. D"],
+        Answer: "C. C",
 
     },
 
@@ -49,15 +57,42 @@ function gameOver() {
 // Create function when submit is selected - needs to start the timer along with push the first question out
 function startGame(){
     console.log('woweee');
-    // timer = 60;
-    // countdown();
-    // beginQuestions();
+    timer = 60;
+    opening.style.display = 'none';
+
+    countdown();
+    beginQuestions();
 
 };
 
 // Create function that will push the first question out and continue to move through questions when selection is made
 function beginQuestions() {
+    quizOpts.style.display = 'block';
 
+    question.textContent = quizQ[index].Question;
+    ans1.textContent = quizQ[index].Options[0];
+    ans2.textContent = quizQ[index].Options[1];
+    ans3.textContent = quizQ[index].Options[2];
+    ans4.textContent = quizQ[index].Options[3];
+
+};
+
+function checkAns(answer) {
+    if (quizQ[index].Answer === quizQ[index].Options[answer]) {
+        answerCheck.textContent = 'Correct!!'
+    } else {
+        timer -= 10;
+        something.textContent = timer;
+    }
+
+    index++;
+
+    if (index < quizQ.length) {
+        beginQuestions();
+    } else {
+        gameOver();
+    }
+    
 };
 
 
@@ -72,7 +107,7 @@ function countdown() {
             gameOver();
         }
 
-    })
+    },1000)
 
 };
 
@@ -85,5 +120,9 @@ function countdown() {
 // Create function to clear after quiz completed and highscore entered. Be able to reset back to the submit section. 
 
 
-// Creating an event listener to start the game
+// Creating event listeners for things clicked
 startButton.addEventListener("click", startGame);
+ans1.addEventListener("click", checkAns);
+ans2.addEventListener("click", checkAns);
+ans3.addEventListener("click", checkAns);
+ans4.addEventListener("click", checkAns);
