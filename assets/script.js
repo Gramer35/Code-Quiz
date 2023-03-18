@@ -122,7 +122,7 @@ function countdown() {
 
 // Creating event listeners for things clicked
 startButton.addEventListener("click", startGame);
-ans1.addEventListener("click", checkAns);
-ans2.addEventListener("click", checkAns);
-ans3.addEventListener("click", checkAns);
-ans4.addEventListener("click", checkAns);
+ans1.addEventListener("click", checkAns(0));
+ans2.addEventListener("click", checkAns(1));
+ans3.addEventListener("click", checkAns(2));
+ans4.addEventListener("click", checkAns(3));
