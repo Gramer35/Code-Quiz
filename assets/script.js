@@ -43,21 +43,23 @@ const quizQ = [
 // Create function to handle highscores/local storage
 function gameOver() {
     
-}
+};
 
 
 // Create function when submit is selected - needs to start the timer along with push the first question out
 function startGame(){
-    timer = 60;
-    countdown();
-    beginQuestions();
+    console.log('woweee');
+    // timer = 60;
+    // countdown();
+    // beginQuestions();
 
-}
+};
 
 // Create function that will push the first question out and continue to move through questions when selection is made
 function beginQuestions() {
-    
-}
+    console.log('woweee');
+
+};
 
 
 // Create function that will handle the countdown - remove 10 second when answer is wrong - once count down hits 0, needs to determine what to do. Also handle what happens when answers are answered before countdown hits 0
@@ -73,7 +75,7 @@ function countdown() {
 
     })
 
-}
+};
 
 
 // Create a function that will keep track of score/right/wrong answers
@@ -85,4 +87,4 @@ function countdown() {
 
 
 // Creating an event listener to start the game
-startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', startGame);
