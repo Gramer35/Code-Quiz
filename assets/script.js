@@ -57,7 +57,6 @@ function startGame(){
 
 // Create function that will push the first question out and continue to move through questions when selection is made
 function beginQuestions() {
-    console.log('woweee');
 
 };
 
@@ -87,4 +86,4 @@ function countdown() {
 
 
 // Creating an event listener to start the game
-startButton.addEventListener('click', startGame);
+startButton.addEventListener("click", startGame);
