@@ -1,7 +1,7 @@
 // create variables to target id's
 const something = document.getElementById("#time");
-const startButton = document.getElementById('#startBtn');
-const quizOptions = document.getElementById('#quiz');
+const startButton = document.getElementById("#startBtn");
+const quizOptions = document.getElementById("#quiz");
 
 let timer = ""
 
