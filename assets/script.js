@@ -17,6 +17,7 @@ const addInitial = document.getElementById('addInitial');
 const listOfHighScores = document.getElementById('list-of-highscores');
 const tryAgain = document.getElementById('tryAgain');
 const clearScores = document.getElementById('clearScores');
+const viewScores = document.querySelector('a');
 
 let index = 0;
 let timer = ""
@@ -213,6 +214,13 @@ function removeScores() {
     listOfHighScores.innerHTML = '';
 }
 
+// function dispScores() {
+//     highScore.style.display = 'block';
+//     opening.style.display = 'none';
+//     tryAgain.style.display = 'none';
+//     clearScores.style.display = 'none';
+// }
+
 
 // Creating event listeners for things clicked
 startButton.addEventListener("click", startGame);
@@ -223,3 +231,4 @@ ans4.addEventListener("click", pick4);
 pushScore.addEventListener('click', addScores);
 tryAgain.addEventListener('click', goBack);
 clearScores.addEventListener('click', removeScores);
+// viewScores.addEventListener('click', dispScores)
