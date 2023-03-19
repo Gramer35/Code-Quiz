@@ -174,7 +174,7 @@ function addScores(event) {
 
 
 function pullHighScores() {
-    debugger;
+    // debugger;
 
     const storedHighScores = localStorage.getItem('high scores');
 
