@@ -11,7 +11,7 @@ const ans4 = document.getElementById('ans4');
 const answerCheck = document.getElementById('checkAns');
 const initials = document.getElementById('initial-score');
 const timeLeft = document.getElementById('timeLeft');
-const highscore = document.getElementById('highscore');
+const highScore = document.getElementById('highscore');
 const pushScore = document.getElementById('pushScore');
 const addInitial = document.getElementById('addInitial')
 
@@ -139,10 +139,35 @@ function addScores(event) {
     event.preventDefault();
     console.log('hello');
 
-    if (addInitial.value === "" ){
+    if (addInitial.value === "") {
         alert("Please enter your initials!");
         return;
     };
+
+    initials.style.display = 'none';
+    highScore.style.display = "block";
+
+
+    let storedHighScores = localStorage.getItem('high scores');
+    let scoresArray;
+    if (storedHighScores === null) {
+        scoresArray = [];
+    } else {
+        scoresArray = JSON.parse(storedHighScores)
+    };
+
+    let userScore = {
+        initials: addInitial.value,
+        score: timer
+    };
+
+    console.log(userScore);
+    scoresArray.push(userScore);
+
+    let scoresArrayString = JSON.stringify(scoresArray);
+    window.localStorage.setItem('high scores', scoresArrayString);
+
+
 }
 
 
