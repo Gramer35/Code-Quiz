@@ -13,7 +13,8 @@ const initials = document.getElementById('initial-score');
 const timeLeft = document.getElementById('timeLeft');
 const highScore = document.getElementById('highscore');
 const pushScore = document.getElementById('pushScore');
-const addInitial = document.getElementById('addInitial')
+const addInitial = document.getElementById('addInitial');
+const listOfHighScores = document.getElementById('list-of-highscores');
 
 let index = 0;
 let timer = ""
@@ -168,7 +169,27 @@ function addScores(event) {
     let scoresArrayString = JSON.stringify(scoresArray);
     window.localStorage.setItem('high scores', scoresArrayString);
 
+    pullHighScores();
+};
 
+
+function pullHighScores() {
+    debugger;
+
+    const storedHighScores = localStorage.getItem('high scores');
+
+    if (storedHighScores === null) {
+        return;
+    }
+
+    const savedHighScores = JSON.parse(storedHighScores)
+
+    for (let i = 0; i < savedHighScores.length; i++) {
+        let addNewScore = document.createElement('p');
+        addNewScore.innerHTML = savedHighScores[i].initials + ": " + savedHighScores[i].score;
+        listOfHighScores.appendChild(addNewScore);
+        
+    }
 }
 
 
