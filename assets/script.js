@@ -149,7 +149,7 @@ function addScores(event) {
 
 
     let storedHighScores = localStorage.getItem('high scores');
-    let scoresArray;
+    var scoresArray;
     if (storedHighScores === null) {
         scoresArray = [];
     } else {
@@ -163,6 +163,7 @@ function addScores(event) {
 
     console.log(userScore);
     scoresArray.push(userScore);
+    console.log(scoresArray)
 
     let scoresArrayString = JSON.stringify(scoresArray);
     window.localStorage.setItem('high scores', scoresArrayString);
