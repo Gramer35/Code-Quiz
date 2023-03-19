@@ -210,7 +210,7 @@ function goBack() {
 
 function removeScores() {
     window.localStorage.removeItem('high scores');
-    listOfHighScores.innerHTML = 'High Scores cleared!';
+    listOfHighScores.innerHTML = '';
 }
 
 
