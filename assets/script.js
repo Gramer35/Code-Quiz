@@ -209,7 +209,8 @@ function goBack() {
 }
 
 function removeScores() {
-
+    window.localStorage.removeItem('high scores');
+    listOfHighScores.innerHTML = 'High Scores cleared!';
 }
 
 
@@ -221,4 +222,4 @@ ans3.addEventListener("click", pick3);
 ans4.addEventListener("click", pick4);
 pushScore.addEventListener('click', addScores);
 tryAgain.addEventListener('click', goBack);
-// clearScores.addEventListener('click', removeScores);
+clearScores.addEventListener('click', removeScores);
