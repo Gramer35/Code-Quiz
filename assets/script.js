@@ -52,6 +52,7 @@ const quizQ = [
 
 // Create function to handle highscores/local storage
 function gameOver() {
+    // debugger;
     console.log('DONE!');
     quizOpts.style.display = 'none';
     initials.style.display = "block";
@@ -115,16 +116,15 @@ function pick4() { checkAns(3) };
 function countdown() {
 
     const timeInt = setInterval(function () {
-        if (timer > 0) {
+        if (index >= quizQ.length) {
+            clearInterval(timeInt)
+        } else if (timer > 0) {
             something.textContent = 'Time: ' + timer;
             timer--;
         } else if (timer === 0) {
             gameOver();
         };
 
-        if (index <= quizQ.length) {
-            clearInterval(timeInt)
-        };
 
     }, 1000)
 
