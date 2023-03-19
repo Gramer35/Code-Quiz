@@ -15,6 +15,8 @@ const highScore = document.getElementById('highscore');
 const pushScore = document.getElementById('pushScore');
 const addInitial = document.getElementById('addInitial');
 const listOfHighScores = document.getElementById('list-of-highscores');
+const tryAgain = document.getElementById('tryAgain');
+const clearScores = document.getElementById('clearScores');
 
 let index = 0;
 let timer = ""
@@ -196,6 +198,20 @@ function pullHighScores() {
 
 // Create function to clear after quiz completed and highscore entered. Be able to reset back to the submit section. 
 
+function goBack() {
+    highScore.style.display = 'none';
+    opening.style.display = 'flex';
+
+    index = 0;
+    timer = "";
+
+    addInitial.value = '';
+}
+
+function removeScores() {
+
+}
+
 
 // Creating event listeners for things clicked
 startButton.addEventListener("click", startGame);
@@ -203,4 +219,6 @@ ans1.addEventListener("click", pick1);
 ans2.addEventListener("click", pick2);
 ans3.addEventListener("click", pick3);
 ans4.addEventListener("click", pick4);
-pushScore.addEventListener('click', addScores)
+pushScore.addEventListener('click', addScores);
+tryAgain.addEventListener('click', goBack);
+// clearScores.addEventListener('click', removeScores);
