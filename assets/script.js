@@ -8,9 +8,11 @@ const ans1 = document.getElementById('ans1');
 const ans2 = document.getElementById('ans2');
 const ans3 = document.getElementById('ans3');
 const ans4 = document.getElementById('ans4');
-let index = 0;
 const answerCheck = document.getElementById('checkAns');
+const initials = document.getElementById('initial-score');
+const timeLeft = document.getElementById('timeLeft');
 
+let index = 0;
 let timer = ""
 
 // Questions need to be in an array of objects or in HTML? - [0, 1, 2, 3, 4]
@@ -50,7 +52,11 @@ const quizQ = [
 
 // Create function to handle highscores/local storage
 function gameOver() {
-
+    console.log('DONE!');
+    quizOpts.style.display = 'none';
+    initials.style.display = "block";
+    timeLeft.textContent = timer;
+    something.textContent = "Good job!";
 };
 
 
@@ -114,7 +120,11 @@ function countdown() {
             timer--;
         } else if (timer === 0) {
             gameOver();
-        }
+        };
+
+        if (index <= quizQ.length) {
+            clearInterval(timeInt)
+        };
 
     }, 1000)
 
