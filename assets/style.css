@@ -47,3 +47,10 @@ button {
     background-color: purple;
     color: white;
   }
+
+input {
+    border-radius: 4px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 18px;
+}

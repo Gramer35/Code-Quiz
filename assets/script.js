@@ -11,6 +11,9 @@ const ans4 = document.getElementById('ans4');
 const answerCheck = document.getElementById('checkAns');
 const initials = document.getElementById('initial-score');
 const timeLeft = document.getElementById('timeLeft');
+const highscore = document.getElementById('highscore');
+const pushScore = document.getElementById('pushScore');
+const addInitial = document.getElementById('addInitial')
 
 let index = 0;
 let timer = ""
@@ -132,7 +135,15 @@ function countdown() {
 
 
 // Create a function that will keep track of score/right/wrong answers
+function addScores(event) {
+    event.preventDefault();
+    console.log('hello');
 
+    if (addInitial === "" ){
+        alert("Please enter your initials!");
+        return;
+    };
+}
 
 
 
@@ -145,3 +156,4 @@ ans1.addEventListener("click", pick1);
 ans2.addEventListener("click", pick2);
 ans3.addEventListener("click", pick3);
 ans4.addEventListener("click", pick4);
+pushScore.addEventListener('click', addScores)
