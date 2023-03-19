@@ -139,7 +139,7 @@ function addScores(event) {
     event.preventDefault();
     console.log('hello');
 
-    if (addInitial === "" ){
+    if (addInitial.value === "" ){
         alert("Please enter your initials!");
         return;
     };
