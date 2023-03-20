@@ -18,6 +18,7 @@ const listOfHighScores = document.getElementById('list-of-highscores');
 const tryAgain = document.getElementById('tryAgain');
 const clearScores = document.getElementById('clearScores');
 const viewScores = document.querySelector('a');
+const backToMain = document.getElementById('back-to-main');
 
 let index = 0;
 let timer = ""
@@ -150,6 +151,10 @@ function addScores(event) {
 
     initials.style.display = 'none';
     highScore.style.display = "block";
+    tryAgain.style.display = "inline-block";
+    clearScores.style.display = "inline-block";
+    backToMain.style.display = 'none';
+
 
 
     let storedHighScores = localStorage.getItem('high scores');
@@ -214,12 +219,19 @@ function removeScores() {
     listOfHighScores.innerHTML = '';
 }
 
-// function dispScores() {
-//     highScore.style.display = 'block';
-//     opening.style.display = 'none';
-//     tryAgain.style.display = 'none';
-//     clearScores.style.display = 'none';
-// }
+function dispScores() {
+    highScore.style.display = 'block';
+    listOfHighScores.style.display = 'block';
+    opening.style.display = 'none';
+    tryAgain.style.display = 'none';
+    clearScores.style.display = 'none';
+    backToMain.style.display = 'inline-block';
+}
+
+function toMain() {
+    highScore.style.display = 'none';
+    opening.style.display = 'flex';
+}
 
 
 // Creating event listeners for things clicked
@@ -231,4 +243,5 @@ ans4.addEventListener("click", pick4);
 pushScore.addEventListener('click', addScores);
 tryAgain.addEventListener('click', goBack);
 clearScores.addEventListener('click', removeScores);
-// viewScores.addEventListener('click', dispScores)
+viewScores.addEventListener('click', dispScores);
+backToMain.addEventListener('click', toMain);
