@@ -75,6 +75,7 @@ function startGame() {
     timer = 60;
     opening.style.display = 'none';
     viewScores.style.display = 'none';
+    answerCheck.style.display = 'none';
 
     countdown();
     beginQuestions();
@@ -143,6 +144,7 @@ function countdown() {
 // Create a function that will keep track of score/right/wrong answers
 function addScores(event) {
     event.preventDefault();
+    // debugger;
     console.log('hello');
 
     if (addInitial.value === "") {
@@ -228,7 +230,15 @@ function dispScores() {
     tryAgain.style.display = 'none';
     clearScores.style.display = 'none';
     backToMain.style.display = 'inline-block';
+
+    // const storedScores = localStorage.getItem('high scores');
+    // const savedScores = JSON.parse(storedHighScores);
+
+    // for (let i = 0; i < savedScores.length; i++);
+    //     const scoreDisplay = savedScores[i];
+
 }
+
 
 function toMain() {
     highScore.style.display = 'none';
