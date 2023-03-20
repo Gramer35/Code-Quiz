@@ -74,6 +74,7 @@ function startGame() {
     console.log('woweee');
     timer = 60;
     opening.style.display = 'none';
+    viewScores.style.display = 'none';
 
     countdown();
     beginQuestions();
@@ -207,6 +208,7 @@ function pullHighScores() {
 function goBack() {
     highScore.style.display = 'none';
     opening.style.display = 'flex';
+    viewScores.style.display = 'flex';
 
     index = 0;
     timer = "";
