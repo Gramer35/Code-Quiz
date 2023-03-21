@@ -40,7 +40,7 @@ const quizQ = [
     {
         Question: "Who let the dogs out?",
         Options: ["A. Mom", "B. Dad", "C. Baha Men", "D. Justin Beiber"],
-        Answer: "C. C",
+        Answer: "C. Baha Men",
 
     },
     {
@@ -51,8 +51,8 @@ const quizQ = [
     },
     {
         Question: "What is Detroit's NFL team?",
-        Options: ["A. Bears", "B. Tigers", "C. Lions", "D. Oh My"],
-        Answer: "C. Lions",
+        Options: ["A. Lions", "B. Tigers", "C. Lions", "D. Oh My"],
+        Answer: "A. Lions",
 
     },
 
@@ -102,7 +102,7 @@ function checkAns(answer) {
         timer -= 10;
         something.textContent = timer;
         answerCheck.style.display = 'block';
-        answerCheck.textContent = 'Wrong! The correct answer was ' + quizQ[index].Answer;
+        answerCheck.textContent = 'Wrong!';
 
     }
 
