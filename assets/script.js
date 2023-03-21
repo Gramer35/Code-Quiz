@@ -1,4 +1,4 @@
-// create variables to target id's
+// Targeting ID's within HTML
 const something = document.getElementById("time");
 const startButton = document.getElementById("startBtn");
 const opening = document.getElementById("opening");
@@ -23,44 +23,43 @@ const backToMain = document.getElementById('back-to-main');
 let index = 0;
 let timer = ""
 
-// Questions need to be in an array of objects or in HTML? - [0, 1, 2, 3, 4]
+// Questions that quiz will reference
 const quizQ = [
     {
-        Question: "What is A",
-        Options: ["A. A", "B. B", "C. C", "D. D"],
-        Answer: "A. A",
+        Question: "What color is the sky?",
+        Options: ["A. Blue", "B. Green", "C. Yellow", "D. Brown"],
+        Answer: "A. Blue",
 
     },
     {
-        Question: "What is B",
-        Options: ["A. A", "B. B", "C. C", "D. D"],
-        Answer: "B. B",
+        Question: "Why did the chicken cross the road?",
+        Options: ["A. Who knows", "B. To get to the other side", "C. To get home", "D. To go to the market"],
+        Answer: "B. To get to the other side",
 
     },
     {
-        Question: "What is C??",
-        Options: ["A. A", "B. B", "C. C", "D. D"],
+        Question: "Who let the dogs out?",
+        Options: ["A. Mom", "B. Dad", "C. Baha Men", "D. Justin Beiber"],
         Answer: "C. C",
 
     },
     {
-        Question: "What is D",
-        Options: ["A. A", "B. B", "C. C", "D. D"],
-        Answer: "D. D",
+        Question: "Where in the world is Carmen San Diego?",
+        Options: ["A. Canada", "B. Philippines", "C. Antartica", "D. California"],
+        Answer: "D. California",
 
     },
     {
-        Question: "What is C again",
-        Options: ["A. A", "B. B", "C. C", "D. D"],
-        Answer: "C. C",
+        Question: "What is Detroit's NFL team?",
+        Options: ["A. Bears", "B. Tigers", "C. Lions", "D. Oh My"],
+        Answer: "C. Lions",
 
     },
 
 ];
 
-// Create function to handle highscores/local storage
+// Function to handle when the game is over
 function gameOver() {
-    // debugger;
     console.log('DONE!');
     quizOpts.style.display = 'none';
     initials.style.display = "block";
@@ -69,7 +68,7 @@ function gameOver() {
 };
 
 
-// Create function when submit is selected - needs to start the timer along with push the first question out
+// When we press the submit button - this will start the game
 function startGame() {
     console.log('woweee');
     timer = 60;
@@ -82,7 +81,7 @@ function startGame() {
 
 };
 
-// Create function that will push the first question out and continue to move through questions when selection is made
+// Starts pushing out questions
 function beginQuestions() {
     quizOpts.style.display = 'block';
 
@@ -94,6 +93,7 @@ function beginQuestions() {
 
 };
 
+// When a question is answered by the user, this function will check if it is right or wrong
 function checkAns(answer) {
     if (quizQ[index].Answer === quizQ[index].Options[answer]) {
         answerCheck.style.display = 'block';
@@ -116,13 +116,13 @@ function checkAns(answer) {
 
 };
 
+// Each button is a function which sets off the check answer's for it's index
 function pick1() { checkAns(0) };
 function pick2() { checkAns(1) };
 function pick3() { checkAns(2) };
 function pick4() { checkAns(3) };
 
-
-// Create function that will handle the countdown - remove 10 second when answer is wrong - once count down hits 0, needs to determine what to do. Also handle what happens when answers are answered before countdown hits 0
+// the timer countdown which will be seen on the top right
 function countdown() {
 
     const timeInt = setInterval(function () {
@@ -141,7 +141,7 @@ function countdown() {
 };
 
 
-// Create a function that will keep track of score/right/wrong answers
+// when the quiz is over, user is prompted to enter initials
 function addScores(event) {
     event.preventDefault();
     // debugger;
@@ -183,9 +183,8 @@ function addScores(event) {
     pullHighScores();
 };
 
-
+// Pulls stored quiz answers from local storage
 function pullHighScores() {
-    // debugger;
 
     const storedHighScores = localStorage.getItem('high scores');
 
@@ -194,6 +193,8 @@ function pullHighScores() {
     }
 
     const savedHighScores = JSON.parse(storedHighScores)
+
+    listOfHighScores.innerHTML = "";
 
     for (let i = 0; i < savedHighScores.length; i++) {
         let addNewScore = document.createElement('p');
@@ -205,8 +206,7 @@ function pullHighScores() {
 
 
 
-// Create function to clear after quiz completed and highscore entered. Be able to reset back to the submit section. 
-
+// Button for after initials are entered to go back to the start of the quiz
 function goBack() {
     highScore.style.display = 'none';
     opening.style.display = 'flex';
@@ -218,11 +218,13 @@ function goBack() {
     addInitial.value = '';
 }
 
+// Button to remove the scores from the local storage
 function removeScores() {
     window.localStorage.removeItem('high scores');
     listOfHighScores.innerHTML = '';
 }
 
+// At the home screen - ability to see current high scores
 function dispScores() {
     highScore.style.display = 'block';
     listOfHighScores.style.display = 'block';
@@ -231,22 +233,18 @@ function dispScores() {
     clearScores.style.display = 'none';
     backToMain.style.display = 'inline-block';
 
-    // const storedScores = localStorage.getItem('high scores');
-    // const savedScores = JSON.parse(storedHighScores);
-
-    // for (let i = 0; i < savedScores.length; i++);
-    //     const scoreDisplay = savedScores[i];
+    pullHighScores();
 
 }
 
-
+// When you are viewing highscores from the home screen, this button allows you to go back to the main screen
 function toMain() {
     highScore.style.display = 'none';
     opening.style.display = 'flex';
 }
 
 
-// Creating event listeners for things clicked
+// event listeners for each button on this quiz
 startButton.addEventListener("click", startGame);
 ans1.addEventListener("click", pick1);
 ans2.addEventListener("click", pick2);
